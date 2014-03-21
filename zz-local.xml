@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- kernel -->
+    <remove-project name="CyanogenMod/android_kernel_htc_msm8960" />
+    <project name="tbalden/android_kernel_htc_msm8960" path="kernel/htc/msm8960" remote="github" />
+
+    <!-- device htc m7 -->
+    <remove-project name="CyanogenMod/android_device_htc_m7" />
+    <project name="eshock/android_device_htc_m7" path="device/htc/m7" remote="github"/>
+
+    <!-- framework files -->
+    <remove-project name="CyanogenMod/android_frameworks_base" />
+    <project name="eshock/android_frameworks_base" path="frameworks/base" remote="github"/>
+
+    <remove-project name="CyanogenMod/android_frameworks_av" />
+    <project name="eshock/android_frameworks_av" path="frameworks/av" remote="github"/>
+
+    <!-- apps -->
+    <remove-project name="CyanogenMod/android_packages_apps_Settings" />
+    <project name="eshock/android_packages_apps_Settings" path="packages/apps/Settings" remote="github"/>
+
+    <remove-project name="CyanogenMod/android_packages_apps_Dialer" />
+    <project name="eshock/android_packages_apps_Dialer" path="packages/apps/Dialer" remote="github"/>
+</manifest>
