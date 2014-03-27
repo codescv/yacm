@@ -1,0 +1,36 @@
+#!/bin/bash
+# GistID: 1aee21019963af82dc1a
+
+type lunch >/dev/null 2>&1
+
+if [[ $? -eq 0 ]]; then
+    return
+fi
+
+source build/envsetup.sh
+
+lm7 () {
+    lunch cm_m7-userdebug 
+}
+
+# push files to device, automatically add or remove $OUT if needed
+# example:
+# pushfiles $OUT/system/somefile ->
+# adb push $OUT/system/somefile /system/somefile
+# pushfiles /system/somefile ->
+# adb push $OUT/system/somefile /system/somefile
+
+pushfiles () {
+    if [[ -z "$OUT" ]]; then
+        echo "\$OUT is not set!"
+        return
+    fi
+
+    for file in $@; do
+        # remove leading $OUT in input if exists
+        # and remove leading slash to normalize
+        file=$( echo $file |perl -pe "s#^${OUT}##" |perl -pe 's#^/##' )
+        echo push $OUT/$file /$file
+        adb push $OUT/$file /$file
+    done
+}
